@@ -1,8 +1,22 @@
 import React from 'react';
-import { X, Download, Printer, ExternalLink, Mail, MapPin } from 'lucide-react';
+import {
+  X,
+  Download,
+  Printer,
+  Mail,
+  Phone,
+  MapPin,
+  Globe,
+  ExternalLink,
+  GraduationCap,
+  Wrench,
+  FolderGit2,
+  FileText,
+  Languages,
+} from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa6';
 import { PERSONAL_INFO, FEATURED_PROJECT } from '../data/projects';
-import { SKILL_CATEGORIES } from '../data/skills';
+import { RESUME_SKILLS } from '../data/skills';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -25,12 +39,20 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {/* Modal Header */}
-        <div className="modal-header">
+    <div
+      className="modal-overlay"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="resume-modal-title"
+    >
+      <div className="modal-content modal-content-resume" onClick={(e) => e.stopPropagation()}>
+        {/* Modal Action Header */}
+        <div className="modal-header no-print">
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <h3 id="resume-modal-title" className="modal-title">Resume Overview</h3>
+            <h3 id="resume-modal-title" className="modal-title">
+              Resume Preview
+            </h3>
             <span
               style={{
                 fontSize: '0.75rem',
@@ -41,7 +63,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 border: '1px solid rgba(59, 130, 246, 0.3)',
               }}
             >
-              Full Stack / MERN
+              Print & Download Ready
             </span>
           </div>
 
@@ -64,7 +86,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               title="Download PDF"
             >
               <Download size={15} />
-              <span>Download</span>
+              <span>Download PDF</span>
             </button>
             <button
               type="button"
@@ -77,107 +99,168 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
         </div>
 
-        {/* Modal Body / Interactive Resume Document Sheet */}
-        <div className="modal-body">
-          <div className="resume-preview-sheet">
-            {/* Header */}
-            <div className="resume-sheet-header">
-              <h1 className="resume-sheet-name">{PERSONAL_INFO.name}</h1>
-              <div className="resume-sheet-title">{PERSONAL_INFO.title}</div>
-              <div className="resume-sheet-contact">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <MapPin size={14} />
+        {/* Modal Body / Resume Document */}
+        <div className="modal-body modal-body-resume">
+          <div id="resume-print-sheet" className="resume-document-sheet">
+            {/* Left Column (Dark Side) */}
+            <aside className="resume-col-left">
+              {/* Header / Name & Role */}
+              <div className="resume-left-header">
+                <h1 className="resume-person-name">{PERSONAL_INFO.name}</h1>
+                <div className="resume-person-role">
+                  <span>Full Stack Developer |</span>
+                  <span>MERN Stack Developer</span>
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="resume-contact-list">
+                <div className="resume-contact-item">
+                  <Mail size={13} className="resume-contact-icon" />
+                  <a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a>
+                </div>
+
+                <div className="resume-contact-item">
+                  <Phone size={13} className="resume-contact-icon" />
+                  <a href={`tel:${PERSONAL_INFO.phone}`}>{PERSONAL_INFO.phone}</a>
+                </div>
+
+                <div className="resume-contact-item">
+                  <MapPin size={13} className="resume-contact-icon" />
                   <span>{PERSONAL_INFO.location}</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <Mail size={14} />
-                  <a href={`mailto:${PERSONAL_INFO.email}`} style={{ color: '#38bdf8' }}>
-                    {PERSONAL_INFO.email}
+
+                <div className="resume-contact-item">
+                  <FaLinkedin size={13} className="resume-contact-icon" />
+                  <a
+                    href={PERSONAL_INFO.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    linkedin.com/in/jerin-benny-299aab343
                   </a>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <FaLinkedin size={14} />
-                  <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8' }}>
-                    LinkedIn Profile
+
+                <div className="resume-contact-item">
+                  <FaGithub size={13} className="resume-contact-icon" />
+                  <a
+                    href={PERSONAL_INFO.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    https://github.com/Jerin34
                   </a>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <FaGithub size={14} />
-                  <a href={PERSONAL_INFO.github} target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8' }}>
-                    github.com/Jerin34
+
+                <div className="resume-contact-item">
+                  <Globe size={13} className="resume-contact-icon" />
+                  <a
+                    href={PERSONAL_INFO.portfolioUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {PERSONAL_INFO.portfolioDisplay}
                   </a>
                 </div>
               </div>
-            </div>
 
-            {/* Professional Summary */}
-            <div className="resume-section-block">
-              <h2 className="resume-section-heading">Professional Summary</h2>
-              <p className="resume-section-content">{PERSONAL_INFO.bioIntro}</p>
-            </div>
+              {/* Summary Section */}
+              <div className="resume-sidebar-section">
+                <div className="resume-badge-header">
+                  <FileText size={13} />
+                  <span>SUMMARY</span>
+                </div>
+                <p className="resume-sidebar-text">{PERSONAL_INFO.bioIntro}</p>
+              </div>
 
-            {/* Technical Skills */}
-            <div className="resume-section-block">
-              <h2 className="resume-section-heading">Technical Skills</h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.9rem' }}>
-                {SKILL_CATEGORIES.map((cat) => (
-                  <div key={cat.title}>
-                    <strong style={{ color: '#f8fafc' }}>{cat.title}: </strong>
-                    <span style={{ color: '#cbd5e1' }}>{cat.skills.join(', ')}</span>
+              {/* Languages Section */}
+              <div className="resume-sidebar-section">
+                <div className="resume-badge-header">
+                  <Languages size={13} />
+                  <span>LANGUAGES</span>
+                </div>
+                <ul className="resume-language-list">
+                  {PERSONAL_INFO.languages.map((lang) => (
+                    <li key={lang}>{lang}</li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+
+            {/* Right Column (Light Side) */}
+            <main className="resume-col-right">
+              {/* Education Section */}
+              <section className="resume-main-section">
+                <div className="resume-badge-header-light">
+                  <GraduationCap size={14} />
+                  <span>EDUCATION</span>
+                </div>
+
+                <div className="resume-edu-entry">
+                  <h2 className="resume-edu-degree">{PERSONAL_INFO.education.degree}</h2>
+                  <div className="resume-edu-inst">{PERSONAL_INFO.education.institution}</div>
+                  <div className="resume-edu-date">{PERSONAL_INFO.education.period}</div>
+                  <p className="resume-edu-desc">{PERSONAL_INFO.education.description}</p>
+                </div>
+              </section>
+
+              {/* Skills Section */}
+              <section className="resume-main-section">
+                <div className="resume-badge-header-light">
+                  <Wrench size={14} />
+                  <span>SKILLS</span>
+                </div>
+
+                <div className="resume-skills-list">
+                  {RESUME_SKILLS.map((sk) => (
+                    <div key={sk.label} className="resume-skill-row">
+                      <span className="resume-skill-label">{sk.label}: </span>
+                      <span className="resume-skill-value">{sk.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Projects Section */}
+              <section className="resume-main-section" style={{ marginBottom: 0 }}>
+                <div className="resume-badge-header-light">
+                  <FolderGit2 size={14} />
+                  <span>PROJECTS</span>
+                </div>
+
+                <div className="resume-project-entry">
+                  <h2 className="resume-proj-title">{FEATURED_PROJECT.title}</h2>
+                  <div className="resume-proj-date">{FEATURED_PROJECT.period}</div>
+                  <div className="resume-proj-stack">
+                    <strong>Tech Stack: </strong>
+                    <span>{FEATURED_PROJECT.techStack.join(', ')}</span>
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Featured Project */}
-            <div className="resume-section-block">
-              <h2 className="resume-section-heading">Featured Full Stack Project</h2>
-              <div style={{ marginBottom: '0.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
-                  <strong style={{ fontSize: '1.05rem', color: '#f8fafc' }}>{FEATURED_PROJECT.title}</strong>
-                  <span style={{ fontSize: '0.82rem', color: '#34d399' }}>Live & Open Source</span>
-                </div>
-                <div style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.2rem 0' }}>
-                  Stack: {FEATURED_PROJECT.techStack.join(' | ')}
-                </div>
-                <div style={{ display: 'flex', gap: '1rem', margin: '0.4rem 0', fontSize: '0.82rem' }}>
-                  <a
-                    href={FEATURED_PROJECT.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
-                  >
-                    <span>Live Demo</span>
-                    <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href={FEATURED_PROJECT.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
-                  >
-                    <span>Source Code</span>
-                    <ExternalLink size={12} />
-                  </a>
-                </div>
-              </div>
-              <ul style={{ paddingLeft: '1.25rem', fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.6' }}>
-                {FEATURED_PROJECT.highlights.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </div>
+                  <ul className="resume-proj-bullets">
+                    {FEATURED_PROJECT.highlights.map((bullet, idx) => (
+                      <li key={idx}>{bullet}</li>
+                    ))}
+                  </ul>
 
-            {/* Target Roles */}
-            <div className="resume-section-block" style={{ marginBottom: 0 }}>
-              <h2 className="resume-section-heading">Target Roles</h2>
-              <p className="resume-section-content">
-                {PERSONAL_INFO.targetRoles.join(' • ')}
-              </p>
-            </div>
+                  <div className="resume-proj-demo">
+                    <strong>• Live Demo: </strong>
+                    <a
+                      href={FEATURED_PROJECT.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="resume-demo-link"
+                    >
+                      <span>ecommerce-web-jerin4.vercel.app</span>
+                      <ExternalLink size={11} />
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </main>
           </div>
         </div>
       </div>
     </div>
   );
 };
+

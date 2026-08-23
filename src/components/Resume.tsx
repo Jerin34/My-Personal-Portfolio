@@ -7,7 +7,6 @@ interface ResumeProps {
 
 export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
   const handleDownload = () => {
-    // Attempt download of static PDF or open structured viewer
     const link = document.createElement('a');
     link.href = '/resume.pdf';
     link.download = 'Jerin_Benny_Resume.pdf';
@@ -23,7 +22,7 @@ export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
           <span className="section-badge">Credentials & Summary</span>
           <h2 className="section-title">Resume</h2>
           <p className="section-subtitle" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-            View or download my resume to learn more about my skills, education, and project experience.
+            View, print, or download my verified resume detailing my technical skills, education, and full-stack project experience.
           </p>
         </div>
 
@@ -36,7 +35,7 @@ export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
           <h3 className="resume-heading">Curriculum Vitae</h3>
 
           <p className="resume-text">
-            A comprehensive overview of my technical stack, architecture capabilities, hands-on e-commerce platform implementation, and problem-solving background.
+            A comprehensive overview of my technical stack (React, Node.js, Express, MongoDB, JavaScript, TypeScript), BCA degree at MES College, and AI-Powered E-Commerce Application project.
           </p>
 
           <div
@@ -51,15 +50,15 @@ export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <CheckCircle2 size={16} style={{ color: '#34d399' }} />
-              <span>Full Stack Focus</span>
+              <span>Full Stack & MERN</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <CheckCircle2 size={16} style={{ color: '#34d399' }} />
-              <span>MERN & TypeScript</span>
+              <span>BCA (08/2023 – 04/2026)</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <CheckCircle2 size={16} style={{ color: '#34d399' }} />
-              <span>Verified GitHub Projects</span>
+              <span>AI E-Commerce Project</span>
             </div>
           </div>
 
@@ -72,7 +71,7 @@ export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
               aria-label="View Resume in modal viewer"
             >
               <Eye size={18} />
-              <span>View Resume</span>
+              <span>View / Print Resume</span>
             </button>
 
             <button
@@ -82,12 +81,8 @@ export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
               aria-label="Download Resume file"
             >
               <Download size={18} />
-              <span>Download Resume</span>
+              <span>Download PDF</span>
             </button>
-          </div>
-
-          <div className="resume-tip">
-            <span>Tip: You can replace <code>public/resume.pdf</code> anytime with your updated PDF file.</span>
           </div>
         </div>
       </div>

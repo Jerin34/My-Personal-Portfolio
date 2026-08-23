@@ -1,15 +1,24 @@
 import type { SkillCategory } from '../types';
 
+export const RESUME_SKILLS = [
+  { label: 'Languages', value: 'JavaScript, TypeScript, Python, SQL' },
+  { label: 'Frontend', value: 'React.js, HTML5, CSS3' },
+  { label: 'Backend', value: 'Node.js, Express.js, REST APIs' },
+  { label: 'Database', value: 'MongoDB' },
+  { label: 'Tools', value: 'Git, GitHub, Postman' },
+  { label: 'Concepts', value: 'JWT Authentication, MVC Architecture, CRUD, API Integration' },
+];
+
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: 'Languages',
     description: 'Core programming and querying languages used for full-stack engineering.',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'C++', 'SQL'],
+    skills: ['JavaScript', 'TypeScript', 'Python', 'SQL'],
   },
   {
     title: 'Frontend',
     description: 'Building responsive, accessible, and high-performance user interfaces.',
-    skills: ['React.js', 'HTML5', 'CSS3', 'Responsive Design'],
+    skills: ['React.js', 'HTML5', 'CSS3'],
   },
   {
     title: 'Backend',
@@ -22,19 +31,19 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: ['MongoDB'],
   },
   {
-    title: 'AI Tools & Automation',
-    description: 'Generative AI integration, intelligent prompt workflows, and automated process systems.',
-    skills: ['Google Gemini API', 'Prompt Engineering', 'AI API Integration', 'Automation Anywhere'],
-  },
-  {
     title: 'Tools',
     description: 'Version control, collaboration, API debugging, and development workflows.',
-    skills: ['Git', 'GitHub', 'Postman', 'Make.com'],
+    skills: ['Git', 'GitHub', 'Postman'],
   },
   {
     title: 'Concepts',
     description: 'Software architecture patterns, security standards, and full-cycle data flows.',
-    skills: ['OOPs', 'JWT Authentication', 'MVC Architecture', 'CRUD Operations', 'API Integration'],
+    skills: ['JWT Authentication', 'MVC Architecture', 'CRUD', 'API Integration'],
+  },
+  {
+    title: 'AI Tools & Automation',
+    description: 'Generative AI integration, intelligent prompt workflows, and automated process systems.',
+    skills: ['Google Gemini API', 'Prompt Engineering', 'AI API Integration'],
   },
 ];
 
