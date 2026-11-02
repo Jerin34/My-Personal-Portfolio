@@ -658,17 +658,18 @@
    CURRENTLY BUILDING SECTION
    ========================================================================== */
 .currently-building-card {
-  background: var(--bg-surface);
-  border: 1px dashed rgba(245, 158, 11, 0.45);
+  background: linear-gradient(180deg, #10172a 0%, #0c111e 100%);
+  border: 1px solid rgba(59, 130, 246, 0.35);
   border-radius: var(--radius-xl);
-  padding: 2rem 2.25rem;
+  padding: 2.5rem;
   position: relative;
   transition: all var(--transition-normal);
+  box-shadow: 0 10px 30px -10px rgba(2, 6, 23, 0.7);
 }
 
 .currently-building-card:hover {
-  border-color: rgba(245, 158, 11, 0.8);
-  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.15);
+  border-color: rgba(59, 130, 246, 0.65);
+  box-shadow: 0 12px 35px -5px rgba(59, 130, 246, 0.15);
 }
 
 .building-header {
