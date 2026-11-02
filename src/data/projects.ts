@@ -32,15 +32,45 @@ export const FEATURED_PROJECT: Project = {
 export const CURRENTLY_BUILDING_PROJECT: CurrentlyBuildingProject = {
   id: 'ai-property-agent',
   title: 'AI Property Management Agent',
-  badge: 'Currently Building',
+  subtitle:
+    'Production MERN & Gemini AI Platform for Real-Time Property Operations, Maintenance & Subscriptions',
+  period: '10/2026 – 11/2026',
+  status: 'Completed & Deployed',
+  badge: 'Production Project',
   description:
-    'Currently building an AI-powered full-stack platform for managing property maintenance requests and improving maintenance issue processing.',
-  focusAreas: [
-    'Automated maintenance request triaging and issue severity classification',
-    'Tenant-to-manager communication channels with structured request workflows',
-    'AI-assisted troubleshooting assistance for common property maintenance issues',
+    'An AI-powered full-stack property management platform built with React, Node.js, Express, TypeScript, MongoDB, and Google Gemini AI. It streamlines property maintenance operations, tenant stay requests, technician assignments, automated diagnostic workflows, and subscription billing via Razorpay.',
+  keyFeatures: [
+    'Built automated maintenance request triage, issue severity classification, and property health analytics using the Google Gemini AI API.',
+    'Architected role-based access control (RBAC) with dedicated portals for Administrators, Property Managers, Tenants, and Technicians.',
+    'Engineered end-to-end maintenance operations including technician assignment, scheduling, SLA monitoring, and automated escalation workflows.',
+    'Integrated Razorpay recurring subscriptions with secure webhook signature verification to synchronize manager plan status.',
+    'Integrated Cloudinary for property photo uploads, location browsing with Google Maps, and tenant stay request tracking.',
+    'Hardened security and performance with JWT authentication, bcrypt password hashing, Zod validation, Helmet, CORS, and node-cron background jobs.',
   ],
-  techStack: ['React', 'Node.js', 'Express.js', 'MongoDB', 'AI Workflows'],
+  focusAreas: [
+    'Built automated maintenance request triage, issue severity classification, and property health analytics using the Google Gemini AI API.',
+    'Architected role-based access control (RBAC) with dedicated portals for Administrators, Property Managers, Tenants, and Technicians.',
+    'Engineered end-to-end maintenance operations including technician assignment, scheduling, SLA monitoring, and automated escalation workflows.',
+    'Integrated Razorpay recurring subscriptions with secure webhook signature verification to synchronize manager plan status.',
+    'Integrated Cloudinary for property photo uploads, location browsing with Google Maps, and tenant stay request tracking.',
+    'Hardened security and performance with JWT authentication, bcrypt password hashing, Zod validation, Helmet, CORS, and node-cron background jobs.',
+  ],
+  techStack: [
+    'React.js',
+    'TypeScript',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'Mongoose',
+    'Google Gemini AI',
+    'Razorpay',
+    'Cloudinary',
+    'JWT',
+    'Zod',
+    'Vite',
+  ],
+  liveUrl: 'https://ai-property-management-agent.vercel.app/',
+  githubUrl: 'https://github.com/Jerin34/ai-property-management-Agent',
 };
 
 export const PERSONAL_INFO = {

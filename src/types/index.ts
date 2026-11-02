@@ -27,10 +27,16 @@ export interface Project {
 export interface CurrentlyBuildingProject {
   id: string;
   title: string;
-  badge: string;
+  subtitle?: string;
+  period?: string;
+  badge?: string;
+  status: string;
   description: string;
+  keyFeatures: string[];
   focusAreas: string[];
   techStack: string[];
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
 export interface HighlightCard {
