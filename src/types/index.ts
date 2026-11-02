@@ -8,6 +8,8 @@ export interface SkillCategory {
   title: string;
   description: string;
   skills: string[];
+  badge?: string;
+  isLearning?: boolean;
 }
 
 export interface Project {
