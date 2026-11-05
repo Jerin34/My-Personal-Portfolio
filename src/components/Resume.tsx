@@ -35,7 +35,7 @@ export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
           <h3 className="resume-heading">Curriculum Vitae</h3>
 
           <p className="resume-text">
-            A comprehensive overview of my technical stack (React, Node.js, Express, MongoDB, JavaScript, TypeScript), BCA degree at MES College, and AI-Powered E-Commerce Application project.
+            A comprehensive overview of my technical stack (React, Node.js, Express, MongoDB, JavaScript, TypeScript), BCA degree at MES College, AI Property Management Agent, and AI-Powered E-Commerce Application projects.
           </p>
 
           <div
@@ -58,7 +58,7 @@ export const Resume: React.FC<ResumeProps> = ({ onOpenResumeModal }) => {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <CheckCircle2 size={16} style={{ color: '#34d399' }} />
-              <span>AI E-Commerce Project</span>
+              <span>AI Full-Stack Projects</span>
             </div>
           </div>
 

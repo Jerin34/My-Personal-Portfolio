@@ -8,15 +8,8 @@ import {
   MapPin,
   Globe,
   ExternalLink,
-  GraduationCap,
-  Wrench,
-  FolderGit2,
-  FileText,
-  Languages,
 } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa6';
-import { PERSONAL_INFO, FEATURED_PROJECT } from '../data/projects';
-import { RESUME_SKILLS } from '../data/skills';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -37,6 +30,37 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     link.target = '_blank';
     link.click();
   };
+
+  const skillsList = [
+    'JavaScript',
+    'TypeScript',
+    'Python',
+    'SQL',
+    'C++',
+    'React.js',
+    'HTML5',
+    'CSS3',
+    'Node.js',
+    'Express.js',
+    'FastAPI',
+    'REST APIs',
+    'MongoDB',
+    'Mongoose',
+    'Google Gemini',
+    'LLM APIs',
+    'Prompt Engineering',
+    'claude',
+    'Huggingface',
+    'Chatgpt',
+    'Git',
+    'GitHub',
+    'Postman',
+    'JWT Authentication',
+    'MVC Architecture',
+    'CRUD',
+    'API Integration',
+    'Webhooks',
+  ];
 
   return (
     <div
@@ -102,165 +126,167 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         {/* Modal Body / Resume Document */}
         <div className="modal-body modal-body-resume">
           <div id="resume-print-sheet" className="resume-document-sheet">
-            {/* Left Column (Dark Side) */}
-            <aside className="resume-col-left">
-              {/* Header / Name & Role */}
-              <div className="resume-left-header">
-                <h1 className="resume-person-name">{PERSONAL_INFO.name}</h1>
-                <div className="resume-person-role">
-                  <span>Full Stack Developer |</span>
-                  <span>MERN Stack Developer</span>
-                </div>
+            {/* Header: Name & Summary on left, Contact info on right */}
+            <div className="resume-header-grid">
+              <div className="resume-header-left">
+                <h1 className="resume-header-name">Jerin Benny</h1>
+                <p className="resume-header-summary">
+                  Full Stack Developer with hands-on experience building web applications using React,
+                  JavaScript, Node.js, Express.js, and MongoDB. Familiar with TypeScript and experienced in
+                  developing REST APIs, authentication systems, database-driven applications, payment
+                  integrations, and AI-powered features. Seeking an entry-level Full Stack Developer / Software
+                  Developer role.
+                </p>
               </div>
 
-              {/* Contact Info */}
-              <div className="resume-contact-list">
-                <div className="resume-contact-item">
+              <div className="resume-header-contacts">
+                <div className="resume-contact-row">
                   <Mail size={13} className="resume-contact-icon" />
-                  <a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a>
-                </div>
-
-                <div className="resume-contact-item">
-                  <Phone size={13} className="resume-contact-icon" />
-                  <a href={`tel:${PERSONAL_INFO.phone}`}>{PERSONAL_INFO.phone}</a>
-                </div>
-
-                <div className="resume-contact-item">
-                  <MapPin size={13} className="resume-contact-icon" />
-                  <span>{PERSONAL_INFO.location}</span>
-                </div>
-
-                <div className="resume-contact-item">
-                  <FaLinkedin size={13} className="resume-contact-icon" />
-                  <a
-                    href={PERSONAL_INFO.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    linkedin.com/in/jerin-benny-299aab343
+                  <a href="mailto:jerinbenny875@gmail.com" className="resume-contact-link">
+                    jerinbenny875@gmail.com
                   </a>
                 </div>
 
-                <div className="resume-contact-item">
+                <div className="resume-contact-row">
+                  <Phone size={13} className="resume-contact-icon" />
+                  <a href="tel:8156872980" className="resume-contact-link">
+                    8156872980
+                  </a>
+                </div>
+
+                <div className="resume-contact-row">
+                  <MapPin size={13} className="resume-contact-icon" />
+                  <span className="resume-contact-text">Malappuram, Kerala, India</span>
+                </div>
+
+                <div className="resume-contact-row">
                   <FaGithub size={13} className="resume-contact-icon" />
                   <a
-                    href={PERSONAL_INFO.github}
+                    href="https://github.com/Jerin34"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="resume-contact-link"
                   >
                     https://github.com/Jerin34
                   </a>
                 </div>
 
-                <div className="resume-contact-item">
-                  <Globe size={13} className="resume-contact-icon" />
+                <div className="resume-contact-row">
+                  <FaLinkedin size={13} className="resume-contact-icon" />
                   <a
-                    href={PERSONAL_INFO.portfolioUrl}
+                    href="https://linkedin.com/in/jerin-benny-299aab343"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="resume-contact-link"
                   >
-                    {PERSONAL_INFO.portfolioDisplay}
+                    https://linkedin.com/in/jerin-benny-299aab343
+                  </a>
+                </div>
+
+                <div className="resume-contact-row">
+                  <Globe size={13} className="resume-contact-icon" />
+                  <a
+                    href="https://my-personal-portfolio-one-lovat.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="resume-contact-link"
+                  >
+                    https://my-personal-portfolio-one-lovat.vercel.app
                   </a>
                 </div>
               </div>
+            </div>
 
-              {/* Summary Section */}
-              <div className="resume-sidebar-section">
-                <div className="resume-badge-header">
-                  <FileText size={13} />
-                  <span>SUMMARY</span>
-                </div>
-                <p className="resume-sidebar-text">{PERSONAL_INFO.bioIntro}</p>
+            {/* Skills Section */}
+            <div className="resume-section-block">
+              <h2 className="resume-section-heading">Skills</h2>
+              <div className="resume-skills-pills-wrap">
+                {skillsList.map((skill) => (
+                  <span key={skill} className="resume-skill-badge">
+                    {skill}
+                  </span>
+                ))}
               </div>
+            </div>
 
-              {/* Languages Section */}
-              <div className="resume-sidebar-section">
-                <div className="resume-badge-header">
-                  <Languages size={13} />
-                  <span>LANGUAGES</span>
-                </div>
-                <ul className="resume-language-list">
-                  {PERSONAL_INFO.languages.map((lang) => (
-                    <li key={lang}>{lang}</li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-
-            {/* Right Column (Light Side) */}
-            <main className="resume-col-right">
-              {/* Education Section */}
-              <section className="resume-main-section">
-                <div className="resume-badge-header-light">
-                  <GraduationCap size={14} />
-                  <span>EDUCATION</span>
-                </div>
-
-                <div className="resume-edu-entry">
-                  <h2 className="resume-edu-degree">{PERSONAL_INFO.education.degree}</h2>
-                  <div className="resume-edu-inst">{PERSONAL_INFO.education.institution}</div>
-                  <div className="resume-edu-date">{PERSONAL_INFO.education.period}</div>
-                  <p className="resume-edu-desc">{PERSONAL_INFO.education.description}</p>
-                </div>
-              </section>
-
-              {/* Skills Section */}
-              <section className="resume-main-section">
-                <div className="resume-badge-header-light">
-                  <Wrench size={14} />
-                  <span>SKILLS</span>
-                </div>
-
-                <div className="resume-skills-list">
-                  {RESUME_SKILLS.map((sk) => (
-                    <div key={sk.label} className="resume-skill-row">
-                      <span className="resume-skill-label">{sk.label}: </span>
-                      <span className="resume-skill-value">{sk.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Projects Section */}
-              <section className="resume-main-section" style={{ marginBottom: 0 }}>
-                <div className="resume-badge-header-light">
-                  <FolderGit2 size={14} />
-                  <span>PROJECTS</span>
-                </div>
-
-                <div className="resume-project-entry">
-                  <h2 className="resume-proj-title">{FEATURED_PROJECT.title}</h2>
-                  <div className="resume-proj-date">{FEATURED_PROJECT.period}</div>
-                  <div className="resume-proj-stack">
-                    <strong>Tech Stack: </strong>
-                    <span>{FEATURED_PROJECT.techStack.join(', ')}</span>
-                  </div>
-
-                  <ul className="resume-proj-bullets">
-                    {FEATURED_PROJECT.highlights.map((bullet, idx) => (
-                      <li key={idx}>{bullet}</li>
-                    ))}
-                  </ul>
-
-                  <div className="resume-proj-demo">
-                    <strong>• Live Demo: </strong>
+            {/* Projects Section */}
+            <div className="resume-section-block">
+              <h2 className="resume-section-heading">Projects</h2>
+              <div className="resume-projects-list">
+                {/* Project 1: AI Property Management Agent */}
+                <div className="resume-project-item">
+                  <div className="resume-project-item-header">
                     <a
-                      href={FEATURED_PROJECT.liveUrl}
+                      href="https://ai-property-management-agent.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="resume-demo-link"
+                      className="resume-project-item-title"
                     >
-                      <span>ecommerce-web-jerin4.vercel.app</span>
-                      <ExternalLink size={11} />
+                      AI Property Management Agent
                     </a>
                   </div>
+                  <div className="resume-project-item-stack">
+                    Tech Stack: React.js, TypeScript, Node.js, Express.js, MongoDB, Mongoose, JWT, Gemini AI, Razorpay, Cloudinary
+                  </div>
+                  <ul className="resume-project-item-bullets">
+                    <li>Built a role-based property management platform supporting Admin, Manager, Tenant, and Technician workflows.</li>
+                    <li>Developed REST APIs for property management, tenant stay requests, maintenance scheduling, technician assignment, and maintenance status tracking.</li>
+                    <li>Integrated Google Gemini AI to provide AI-assisted property insights and management support.</li>
+                    <li>Implemented Razorpay subscription payments and webhook handling for manager subscription workflows.</li>
+                    <li>Integrated Cloudinary for property image uploads and MongoDB for persistent data storage.</li>
+                    <li>Deployed the backend on Render and maintained the project using Git and GitHub.</li>
+                  </ul>
                 </div>
-              </section>
-            </main>
+
+                {/* Project 2: AI-Powered E-Commerce Application */}
+                <div className="resume-project-item">
+                  <div className="resume-project-item-header">
+                    <a
+                      href="https://ecommerce-web-jerin4.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="resume-project-item-title"
+                    >
+                      AI-Powered E-Commerce Application
+                    </a>
+                    <a
+                      href="https://ecommerce-web-jerin4.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="resume-project-demo-pill"
+                    >
+                      <span>Demo</span>
+                      <ExternalLink size={12} />
+                    </a>
+                  </div>
+                  <div className="resume-project-item-stack">
+                    Tech Stack: React.js, Node.js, JavaScript, Express.js, MongoDB, JWT, Gemini AI
+                  </div>
+                  <ul className="resume-project-item-bullets">
+                    <li>Developed a full-stack e-commerce application with user authentication.</li>
+                    <li>Implemented product filtering, sorting, pagination, cart, and order features.</li>
+                    <li>Built an admin dashboard for product management.</li>
+                    <li>Developed REST APIs and integrated MongoDB for persistent data storage.</li>
+                    <li>Integrated AI functionality using the Google Gemini API.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Education Section */}
+            <div className="resume-section-block" style={{ marginBottom: 0 }}>
+              <h2 className="resume-section-heading">Education</h2>
+              <div className="resume-education-entry">
+                <div className="resume-education-top-line">
+                  <span className="resume-education-degree">Bachelor of Computer Applications (BCA)</span>
+                  <span className="resume-education-date">08/2023 - 04/2026</span>
+                </div>
+                <div className="resume-education-school">MES College of Arts and Science</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
